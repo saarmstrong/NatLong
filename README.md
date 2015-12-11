@@ -3,7 +3,6 @@
 
 # Angular2 Webpack Seed
 
-## Stack
 - Angular `2.0.0-alpha.52`
 - Gulp `4.0.0-alpha.2`
 - Jasmine
@@ -22,47 +21,72 @@
 - Bundle and minify release builds
 
 
-## Prerequisites
-Node `~5.1`
+## Getting Started
+### Prerequisites
+- `node` v4.x or v5.x
 
-
-## Installing Dependencies
+### Installing Global Dependencies
 ```bash
-$ npm install
+$ npm install -g karma-cli
 ```
 
+##### Webpack
+```bash
+$ npm install -g webpack
+$ npm install -g webpack-dev-server
+```
+This is optional if you only intend to use the provided gulp tasks.
 
-#### Gulp v4 (optional)
+##### Gulp v4 (optional)
 ```bash
 $ npm install -g gulpjs/gulp-cli#4.0
 ```
-The gulp tasks for this project require gulp v4-alpha. If you don't wish to globally install the v4 gulp-cli, you can run the gulp tasks using the locally installed gulp under `./node_modules/.bin`
+The gulp tasks for this project require gulp v4-alpha. If you don't wish to globally install the v4 gulp-cli, you can run the gulp tasks using the locally installed gulp under `./node_modules/.bin` — for example:
 ```bash
 $ ./node_modules/.bin/gulp
 ```
 
 
-## Developing
+### Installing Project-local Dependencies
+```bash
+$ npm install
+```
+
+
+## Commands
+#### Develop
 ```bash
 $ gulp
 ```
-This will start the Webpack development server at <a href="http://localhost:3000" target="_blank">localhost:3000</a>.
+- Start the Webpack dev server at <a href="http://localhost:3000" target="_blank">localhost:3000</a>
+- Watch for changes to your source files
+- Live-reload the browser
 
-
-## Manual Builds
+#### Lint (tslint)
 ```bash
-$ gulp build
+$ gulp lint
 ```
-This will generate minified build artifacts into `/target` directory. Run `gulp serve` to start a BrowserSync server in this directory.
 
+#### Test (single-run)
+```bash
+$ gulp test
+```
 
-## Testing
+#### Test (watch mode)
 ```bash
 $ gulp test.watch
 ```
-Executing `gulp test.watch` will:
-- Run the test suites
-- Watch for changes to the source files
-- Re-run the tests whenever the sources are modified
 
-For a single test run without auto-watch, execute `gulp test` instead.
+#### Build
+```bash
+$ gulp build
+```
+
+#### Dist build
+```bash
+$ gulp dist
+```
+Executes the following:
+- `gulp lint`
+- `gulp test`
+- `gulp build`
