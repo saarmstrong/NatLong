@@ -23,7 +23,7 @@
 
 ## Getting Started
 ### Prerequisites
-- `node` v4.x or v5.x
+- `node >=4.2`
 
 ### Installing Global Dependencies
 ```bash
