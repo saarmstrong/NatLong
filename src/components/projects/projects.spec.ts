@@ -20,13 +20,6 @@ import { ProjectService } from '../../modules/project/project-service';
 import { Projects } from './projects';
 
 
-@Component({
-  template: '',
-  directives: [Projects]
-})
-class TestComponent {}
-
-
 describe('Projects', () => {
   beforeEachProviders(() => [AuthService, ProjectService]);
 

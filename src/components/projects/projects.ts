@@ -2,8 +2,8 @@ import { NgFor } from 'angular2/common';
 import { Component, View } from 'angular2/core';
 import { ProjectService } from '../../modules/project/project-service';
 
-const styles = require('!raw!autoprefixer!sass!./projects.scss');
-const template = require('./projects.html');
+const styles: string = require('!raw!autoprefixer!sass!./projects.scss');
+const template: string = require('./projects.html');
 
 
 @Component({
