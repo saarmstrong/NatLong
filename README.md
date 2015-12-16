@@ -3,12 +3,12 @@
 
 # Angular2 Webpack Seed
 
-- Angular `2.0.0-alpha.53`
+- Angular `2.0.0-beta.0`
 - Gulp `4.0.0-alpha.2`
 - Jasmine
 - Karma
 - SASS
-- Typescript `~1.7.3`
+- Typescript `~1.7.5`
 - Webpack
 - Webpack Development Server
 
