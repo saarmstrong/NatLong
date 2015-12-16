@@ -20,12 +20,11 @@ module.exports = {
     vendor: [
       'es6-shim',
       'rxjs',
-      'zone.js',
-      'reflect-metadata',
-      'angular2/bootstrap',
+      'angular2/bundles/angular2-polyfills',
       'angular2/common',
       'angular2/core',
       'angular2/http',
+      'angular2/platform/browser',
       'angular2/router'
     ]
   },
@@ -48,6 +47,10 @@ module.exports = {
       {test: /\.scss$/, include: [path.resolve(__dirname, 'src/components')], loader: 'raw!autoprefixer-loader?{browsers:["last 3 versions", "Firefox ESR"]}!sass'},
       {test: /\.scss$/, include: [path.resolve(__dirname, 'src/styles')], loader: 'style!css!autoprefixer-loader?{browsers:["last 3 versions", "Firefox ESR"]}!sass'},
       {test: /\.ts$/, exclude: [/\.spec\.ts$/, /node_modules/], loader: 'ts'}
+    ],
+
+    noParse: [
+      /angular2\/bundles\/.+/
     ]
   },
 
