@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = (config) => {
   config.set({
     frameworks: ['jasmine'],
 
@@ -11,10 +11,8 @@ module.exports = function(config) {
       'karma.entry.js': ['webpack', 'sourcemap']
     },
 
-    // webpack config
     webpack: require('./webpack.test'),
 
-    // webpack server config
     webpackServer: {
       noInfo: true
     },

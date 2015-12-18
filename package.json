@@ -14,17 +14,15 @@
     "node": ">=4.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --progress",
-    "dist": "./node_modules/.bin/gulp clean.target && webpack --config webpack.dist.js --progress",
-    "start": "npm run dev",
-    "test": "./node_modules/.bin/gulp test"
+    "build": "npm run clean && npm test && ./node_modules/.bin/webpack --config webpack.dist.js --progress",
+    "clean": "./node_modules/.bin/de ./target",
+    "start": "./node_modules/.bin/webpack-dev-server --config webpack.dev.js --progress",
+    "test": "./node_modules/.bin/karma start --single-run"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.0",
     "es6-shim": "~0.33.13",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.0",
-    "zone.js": "0.5.10"
+    "rxjs": "5.0.0-beta.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "~3.1.0",
@@ -32,6 +30,7 @@
     "connect-history-api-fallback": "~1.1.0",
     "css-loader": "~0.23.0",
     "del": "~2.2.0",
+    "del-cli": "~0.1.1",
     "extract-text-webpack-plugin": "~0.9.1",
     "gulp": "gulpjs/gulp.git#4.0",
     "gulp-tslint": "~4.2.1",
@@ -45,12 +44,14 @@
     "karma-webpack": "~1.7.0",
     "node-sass": "~3.4.2",
     "raw-loader": "~0.5.1",
+    "reflect-metadata": "0.1.2",
     "sass-loader": "~3.1.2",
     "style-loader": "~0.13.0",
     "ts-loader": "~0.7.2",
     "tslint": "~3.2.0",
     "typescript": "~1.7.5",
     "webpack": "~1.12.9",
-    "webpack-dev-server": "~1.14.0"
+    "webpack-dev-server": "~1.14.0",
+    "zone.js": "0.5.10"
   }
 }
