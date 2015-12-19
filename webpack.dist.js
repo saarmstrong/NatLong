@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 // plugins
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const DedupePlugin = webpack.optimize.DedupePlugin;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
@@ -18,13 +19,13 @@ module.exports = {
     main: './src/main',
     vendor: [
       'es6-shim',
-      'rxjs',
       'angular2/bundles/angular2-polyfills',
       'angular2/common',
       'angular2/core',
       'angular2/http',
       'angular2/platform/browser',
-      'angular2/router'
+      'angular2/router',
+      'rxjs'
     ]
   },
 
@@ -63,9 +64,9 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new DedupePlugin(),
     new OccurenceOrderPlugin(),
     new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js', minChunks: Infinity}),
-    new CommonsChunkPlugin({name: 'common', filename: 'common.js'}),
     new HtmlWebpackPlugin({
       chunksSortMode: 'none',
       filename: 'index.html',
