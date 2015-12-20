@@ -10,7 +10,7 @@ const OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
 module.exports = {
   cache: true,
   debug: true,
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
 
   entry: {
     main: [
@@ -19,13 +19,13 @@ module.exports = {
     ],
     vendor: [
       'es6-shim',
-      'rxjs',
       'angular2/bundles/angular2-polyfills',
       'angular2/common',
       'angular2/core',
       'angular2/http',
       'angular2/platform/browser',
-      'angular2/router'
+      'angular2/router',
+      'rxjs'
     ]
   },
 
@@ -63,11 +63,10 @@ module.exports = {
   plugins: [
     new OccurenceOrderPlugin(),
     new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js', minChunks: Infinity}),
-    new CommonsChunkPlugin({name: 'common', filename: 'common.js'}),
     new HtmlWebpackPlugin({
       chunksSortMode: 'none',
       filename: 'index.html',
-      hash: true,
+      hash: false,
       inject: 'body',
       template: './src/index.html'
     })
