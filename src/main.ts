@@ -4,13 +4,13 @@ import { HTTP_PROVIDERS } from 'angular2/http';
 import { APP_BASE_HREF, ROUTER_PROVIDERS } from 'angular2/router';
 
 // root component
-import { App } from './components/app/app';
+import { App } from 'components/app/app';
 
 // modules
-import { AUTH_PROVIDERS } from './modules/auth/providers';
+import { AUTH_PROVIDERS } from 'modules/auth/providers';
 
 // global styles
-import './styles/styles.scss';
+import 'styles/styles.scss';
 
 
 bootstrap(App, [
