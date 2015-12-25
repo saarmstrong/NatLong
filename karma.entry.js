@@ -1,6 +1,8 @@
 require('angular2/bundles/angular2-polyfills');
 require('angular2/testing');
 
+// Uncomment to load rx operators as test dependencies
+// require('rxjs/Rx');
 
 // Turn on full stack traces in errors to help debugging
 Error.stackTraceLimit = Infinity;

@@ -45,9 +45,9 @@ module.exports = {
     loaders: [
       {test: /\.html$/, loader: 'raw'},
       {test: /\.ts$/, exclude: [/\.spec\.ts$/, /node_modules/], loader: 'ts'},
-      {test: /\.scss$/, include: [path.resolve(__dirname, 'src/components')], loader: 'raw!autoprefixer-loader?{browsers:["last 3 versions", "Firefox ESR"]}!sass'},
+      {test: /\.scss$/, include: [path.resolve(__dirname, 'src/components')], loader: 'raw!autoprefixer?{browsers:["last 3 versions", "Firefox ESR"]}!sass'},
       {test: /\.scss$/, include: [path.resolve(__dirname, 'src/styles')], loader: ExtractTextPlugin.extract(
-        'css!autoprefixer-loader?{browsers:["last 3 versions", "Firefox ESR"]}!sass'
+        'css!autoprefixer?{browsers:["last 3 versions", "Firefox ESR"]}!sass'
       )}
     ],
 
@@ -57,7 +57,7 @@ module.exports = {
   },
 
   sassLoader: {
-    outputStyle: 'compressed',
+    outputStyle: 'nested',
     precision: 10,
     sourceComments: false
   },
