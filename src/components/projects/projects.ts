@@ -1,5 +1,5 @@
+import { Component } from 'angular2/core';
 import { NgFor } from 'angular2/common';
-import { Component, View } from 'angular2/core';
 import { ProjectService } from 'modules/project/project-service';
 
 const styles: string = require('./projects.scss');
@@ -7,18 +7,11 @@ const template: string = require('./projects.html');
 
 
 @Component({
+  directives: [NgFor],
   selector: 'projects',
-  viewProviders: [
-    ProjectService
-  ]
-})
-
-@View({
-  directives: [
-    NgFor
-  ],
   styles: [styles],
-  template
+  template,
+  viewProviders: [ProjectService]
 })
 
 export class Projects {

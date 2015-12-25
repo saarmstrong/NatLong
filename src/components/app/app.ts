@@ -1,19 +1,20 @@
-import { Component, View } from 'angular2/core';
+import { Component } from 'angular2/core';
 import { RouteConfig, RouterLink, RouterOutlet } from 'angular2/router';
 import { Home } from '../home/home';
 import { Projects } from '../projects/projects';
 
 
-@Component({
-  selector: 'app'
-})
+@RouteConfig([
+  {path: '/', component: Home, as: 'Home'},
+  {path: '/projects', component: Projects, as: 'Projects'}
+])
 
-@View({
+@Component({
   directives: [
     RouterLink,
     RouterOutlet
   ],
-
+  selector: 'app',
   template: `
     <header>
       <a [routerLink]="['/Home']">Home</a> | <a [routerLink]="['/Projects']">Projects</a>
@@ -24,10 +25,5 @@ import { Projects } from '../projects/projects';
     </main>
   `
 })
-
-@RouteConfig([
-  {path: '/', component: Home, as: 'Home'},
-  {path: '/projects', component: Projects, as: 'Projects'}
-])
 
 export class App {}

@@ -21,7 +21,10 @@ import { Projects } from './projects';
 
 
 describe('Projects', () => {
-  beforeEachProviders(() => [AuthService, ProjectService]);
+  beforeEachProviders(() => [
+    AuthService,
+    ProjectService
+  ]);
 
   it('should display a list of projects', inject([TestComponentBuilder], tcb => {
     tcb.createAsync(Projects)
