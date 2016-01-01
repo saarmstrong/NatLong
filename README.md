@@ -15,7 +15,7 @@
 
 ## Features
 - Inline external HTML templates into typescript component files (optional)
-- Inline and autoprefixes external SCSS files into typescript component files (optional)
+- Inline and autoprefix external SCSS files into typescript component files (optional)
 - Inject styles into `index.html` (optional)
 - Inject script tags into `index.html`
 - Bundle and minify release builds
