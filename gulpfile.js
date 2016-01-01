@@ -83,10 +83,12 @@ gulp.task('serve.dev', done => {
   let conf = require(config.webpack.dev);
   let compiler = webpack(conf);
   let server = new WebpackServer(compiler, conf.devServer);
+  let host = conf.devServer.host;
+  let port = conf.devServer.port;
 
-  server.listen(conf.devServer.port, 'localhost', () => {
+  server.listen(port, host, () => {
     gutil.log(gutil.colors.gray('-------------------------------------------'));
-    gutil.log('WebpackDevServer:', gutil.colors.magenta(`http://localhost:${conf.devServer.port}`));
+    gutil.log('WebpackDevServer:', gutil.colors.magenta(`http://${host}:${port}`));
     gutil.log(gutil.colors.gray('-------------------------------------------'));
     done();
   });

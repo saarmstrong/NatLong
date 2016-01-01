@@ -6,6 +6,10 @@ const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
 
+// server address
+const SERVER_HOST = 'localhost';
+const SERVER_PORT = '3000';
+
 
 module.exports = {
   cache: true,
@@ -14,7 +18,7 @@ module.exports = {
 
   entry: {
     main: [
-      'webpack-dev-server/client?http://localhost:3000',
+      `webpack-dev-server/client?http://${SERVER_HOST}:${SERVER_PORT}`,
       './src/main'
     ],
     vendor: [
@@ -75,8 +79,9 @@ module.exports = {
   devServer: {
     contentBase: './src',
     historyApiFallback: true,
+    host: SERVER_HOST,
     inline: true,
-    port: 3000,
+    port: SERVER_PORT,
     publicPath: '/',
     stats: {
       cached: true,
