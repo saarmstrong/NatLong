@@ -3,7 +3,7 @@
 
 # Angular2 Webpack Seed
 
-- Angular `2.0.0-beta.0`
+- Angular `2.0.0-beta.1`
 - Gulp `4.0.0-alpha.2`
 - Jasmine
 - Karma
