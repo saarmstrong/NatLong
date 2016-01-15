@@ -3,12 +3,12 @@
 
 # Angular2 Webpack Seed
 
-- Angular `2.0.0-beta.1`
-- Gulp `4.0.0-alpha.2`
+- Angular
+- Gulp
 - Jasmine
 - Karma
 - SASS
-- Typescript `~1.7.5`
+- Typescript
 - Webpack
 - Webpack Development Server
 
@@ -23,7 +23,7 @@
 
 ## Getting Started
 ### Prerequisites
-- `node >=4.2`
+- `node >=5.2`
 
 ### Installing Global Dependencies
 ##### Gulp v4 (optional)
