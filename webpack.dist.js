@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -45,16 +46,18 @@ module.exports = {
     loaders: [
       {test: /\.html$/, loader: 'raw'},
       {test: /\.ts$/, exclude: [/\.spec\.ts$/, /node_modules/], loader: 'ts'},
-      {test: /\.scss$/, include: [path.resolve(__dirname, 'src/components')], loader: 'raw!autoprefixer?{browsers:["last 3 versions", "Firefox ESR"]}!sass'},
-      {test: /\.scss$/, include: [path.resolve(__dirname, 'src/styles')], loader: ExtractTextPlugin.extract(
-        'css!autoprefixer?{browsers:["last 3 versions", "Firefox ESR"]}!sass'
-      )}
+      {test: /\.scss$/, include: [path.resolve(__dirname, 'src/components')], loader: 'raw!postcss-loader!sass'},
+      {test: /\.scss$/, include: [path.resolve(__dirname, 'src/styles')], loader: ExtractTextPlugin.extract('css!postcss-loader!sass')}
     ],
 
     noParse: [
       /angular2\/bundles\/.+/
     ]
   },
+
+  postcss: [
+    autoprefixer({ browsers: ['last 3 versions', 'Firefox ESR'] })
+  ],
 
   sassLoader: {
     outputStyle: 'nested',

@@ -124,8 +124,8 @@ gulp.task('default', gulp.task('serve.dev'));
 //  TEST
 //---------------------------
 function karmaServer(options, done) {
-  let server = new karma.Server(options, error => {
-    if (error) process.exit(error);
+  let server = new karma.Server(options, exitCode => {
+    if (exitCode > 0) process.exit(exitCode);
     done();
   });
   server.start();
