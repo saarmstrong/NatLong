@@ -34,7 +34,7 @@ System.register(['angular2/core', 'angular2/router', './ping.service'], function
                     this._service.getPing(id).then(function (ping) { return _this.ping = ping; });
                 };
                 DetailsComponent.prototype.getImgSrc = function () {
-                    return "https://maps.googleapis.com/maps/api/staticmap?center=" + this.ping.lat + "," + this.ping.long + "&zoom=18&size=300x300&sensor=false";
+                    return "https://maps.googleapis.com/maps/api/staticmap?center=" + this.ping.lat + "," + this.ping.long + "&zoom=18&size=400x400&sensor=false";
                 };
                 DetailsComponent = __decorate([
                     core_1.Component({

@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   }
 
   getImgSrc() {
-    return "https://maps.googleapis.com/maps/api/staticmap?center=" + this.ping.lat + "," + this.ping.long + "&zoom=18&size=300x300&sensor=false";
+    return "https://maps.googleapis.com/maps/api/staticmap?center=" + this.ping.lat + "," + this.ping.long + "&zoom=18&size=400x400&sensor=false";
   }
 
 }

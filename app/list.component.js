@@ -33,6 +33,7 @@ System.register(['angular2/core', 'angular2/router', './ping.service'], function
                 };
                 ListComponent.prototype.sendPing = function () {
                     console.log('send ping');
+                    this._service.sendPing();
                 };
                 ListComponent.prototype.ngOnInit = function () {
                     var _this = this;

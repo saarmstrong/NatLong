@@ -25,6 +25,7 @@ export class ListComponent implements OnInit {
 
   sendPing() {
     console.log('send ping');
+    this._service.sendPing();
   }
 
   ngOnInit() {

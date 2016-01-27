@@ -35,6 +35,26 @@ System.register(['angular2/core'], function(exports_1) {
                     return pingsPromise
                         .then(function (pings) { return pings.filter(function (h) { return h.id === +id; })[0]; });
                 };
+                PingService.prototype.getLocation = function () {
+                    if (!navigator.geolocation) {
+                        console.error("Geolocation is not supported by your browser");
+                        return;
+                    }
+                    function success(position) {
+                        var lat = position.coords.latitude;
+                        var long = position.coords.longitude;
+                        console.log('got location');
+                        console.log(lat, long);
+                    }
+                    function error() {
+                        console.error('something went wrong');
+                    }
+                    navigator.geolocation.getCurrentPosition(success, error);
+                };
+                PingService.prototype.sendPing = function () {
+                    console.log("getting location");
+                    this.getLocation();
+                };
                 PingService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
@@ -45,8 +65,8 @@ System.register(['angular2/core'], function(exports_1) {
             ;
             PINGS = [
                 new Ping(3, 'andy', new Date("2016/01/27 10:00:01"), "34.0642487", "-118.36471739999999"),
-                new Ping(2, 'andy', new Date("2016/01/27 09:30:01"), "37.0642487", "-118.54471739999999"),
-                new Ping(1, 'kyle', new Date("2016/01/27 09:00:01"), "33.0642487", "-119.36471739999999"),
+                new Ping(2, 'andy', new Date("2016/01/27 09:30:01"), "34.0642487", "-118.54471739999999"),
+                new Ping(1, 'kyle', new Date("2016/01/27 09:00:01"), "34.0642487", "-119.36471739999999"),
             ];
             pingsPromise = Promise.resolve(PINGS);
         }
