@@ -31,13 +31,16 @@ System.register(['angular2/core', 'angular2/router', './ping.service'], function
                 ListComponent.prototype.onSelect = function (ping) {
                     this._router.navigate(['Detail', { id: ping.id }]);
                 };
+                ListComponent.prototype.sendPing = function () {
+                    console.log('send ping');
+                };
                 ListComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._service.getPings().then(function (pings) { return _this.pings = pings; });
                 };
                 ListComponent = __decorate([
                     core_1.Component({
-                        template: "\n  <ul>\n    <li *ngFor=\"#ping of pings\"\n      (click)=\"onSelect(ping)\">\n       {{ ping.user }} - {{ ping.time }}\n    </li>\n  </ul>\n  "
+                        templateUrl: 'list.html'
                     }), 
                     __metadata('design:paramtypes', [ping_service_1.PingService, router_1.Router, router_1.RouteParams])
                 ], ListComponent);

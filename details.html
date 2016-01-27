@@ -1,0 +1,13 @@
+<div *ngIf="ping">
+  <div class="row" *ngIf="ping">
+    <div class="col-xs-12 col-md-5 col-md-offset-3">
+      <a [routerLink]="['Home']" class="pull-left">&lt;&nbsp;Back</a>
+      <h3>{{ping.user}} - {{ ping.time }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-5 col-md-offset-3">
+      <img  src="{{getImgSrc()}}" />
+    </div>
+  </div>
+</div>

@@ -38,7 +38,7 @@ System.register(['angular2/core', 'angular2/router', './ping.service'], function
                 };
                 DetailsComponent = __decorate([
                     core_1.Component({
-                        template: "\n    <div *ngIf=\"ping\">\n      <a [routerLink]=\"['Home']\">&lt;&nbsp;Back</a>\n      <h3>{{ping.user}} - {{ ping.time }}</h3>\n      <div>\n        <img  src=\"{{getImgSrc()}}\" />\n      </div>\n    </div>\n    ",
+                        templateUrl: 'details.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, ping_service_1.PingService])

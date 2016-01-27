@@ -4,15 +4,7 @@ import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Ping, PingService}   from './ping.service';
 
 @Component({
-  template: `
-    <div *ngIf="ping">
-      <a [routerLink]="['Home']">&lt;&nbsp;Back</a>
-      <h3>{{ping.user}} - {{ ping.time }}</h3>
-      <div>
-        <img  src="{{getImgSrc()}}" />
-      </div>
-    </div>
-    `,
+  templateUrl: 'details.html'
   directives: [ROUTER_DIRECTIVES]
 })
 

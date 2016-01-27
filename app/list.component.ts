@@ -4,14 +4,7 @@ import {Router, RouteParams} from 'angular2/router';
 import {Ping, PingService}   from './ping.service';
 
 @Component({
-  template: `
-  <ul>
-    <li *ngFor="#ping of pings"
-      (click)="onSelect(ping)">
-       {{ ping.user }} - {{ ping.time }}
-    </li>
-  </ul>
-  `
+  templateUrl: 'list.html'
 })
 
 export class ListComponent implements OnInit {
@@ -28,6 +21,10 @@ export class ListComponent implements OnInit {
 
   onSelect(ping: Ping) {
     this._router.navigate( ['Detail', { id: ping.id }] );
+  }
+
+  sendPing() {
+    console.log('send ping');
   }
 
   ngOnInit() {
