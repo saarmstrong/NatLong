@@ -2,7 +2,7 @@ import {Component} from 'angular2/core'
 
 @Component({
   selector: 'natlong-app',
-  template: '<h1>Hello, World.</h1>'
+  templateUrl: 'layout.html'
 })
 
 export class AppComponent { }
