@@ -1,17 +1,19 @@
 import {Component, OnInit} from 'angular2/core';
-import {Router, RouteParams} from 'angular2/router';
+import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {Ping, PingService}   from './ping.service';
 
 @Component({
   template: `
     <div *ngIf="ping">
+      <a [routerLink]="['Home']">&lt;&nbsp;Back</a>
       <h3>{{ping.user}} - {{ ping.time }}</h3>
       <div>
-        <label>Id: </label>{{ping.id}}
+        <img  src="{{getImgSrc()}}" />
       </div>
     </div>
-    `
+    `,
+  directives: [ROUTER_DIRECTIVES]
 })
 
 export class DetailsComponent implements OnInit {
@@ -25,6 +27,10 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     let id = this._routeParams.get('id');
     this._service.getPing(id).then(ping => this.ping = ping);
+  }
+
+  getImgSrc() {
+    return "https://maps.googleapis.com/maps/api/staticmap?center=" + this.ping.lat + "," + this.ping.long + "&zoom=18&size=300x300&sensor=false";
   }
 
 }

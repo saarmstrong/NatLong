@@ -18,8 +18,8 @@ export class PingService {
 
 var PINGS = [
   new Ping(3, 'andy', new Date("2016/01/27 10:00:01"), "34.0642487", "-118.36471739999999"),
-  new Ping(2, 'andy', new Date("2016/01/27 09:30:01"), "34.0642487", "-118.36471739999999"),
-  new Ping(1, 'kyle', new Date("2016/01/27 09:00:01"), "34.0642487", "-118.36471739999999"),
+  new Ping(2, 'andy', new Date("2016/01/27 09:30:01"), "37.0642487", "-118.54471739999999"),
+  new Ping(1, 'kyle', new Date("2016/01/27 09:00:01"), "33.0642487", "-119.36471739999999"),
 ];
 
 var pingsPromise = Promise.resolve(PINGS);

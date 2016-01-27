@@ -37,7 +37,7 @@ System.register(['angular2/core', 'angular2/router', './ping.service'], function
                 };
                 ListComponent = __decorate([
                     core_1.Component({
-                        template: "\n  <ul>\n    <li *ngFor=\"#ping of pings\"\n      (click)=\"onSelect(ping)\">\n      {{ ping.id }} - {{ ping.user }}\n    </li>\n  </ul>\n  "
+                        template: "\n  <ul>\n    <li *ngFor=\"#ping of pings\"\n      (click)=\"onSelect(ping)\">\n       {{ ping.user }} - {{ ping.time }}\n    </li>\n  </ul>\n  "
                     }), 
                     __metadata('design:paramtypes', [ping_service_1.PingService, router_1.Router, router_1.RouteParams])
                 ], ListComponent);

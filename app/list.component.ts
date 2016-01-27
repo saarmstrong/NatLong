@@ -8,7 +8,7 @@ import {Ping, PingService}   from './ping.service';
   <ul>
     <li *ngFor="#ping of pings"
       (click)="onSelect(ping)">
-      {{ ping.id }} - {{ ping.user }}
+       {{ ping.user }} - {{ ping.time }}
     </li>
   </ul>
   `

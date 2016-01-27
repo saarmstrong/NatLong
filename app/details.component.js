@@ -33,9 +33,13 @@ System.register(['angular2/core', 'angular2/router', './ping.service'], function
                     var id = this._routeParams.get('id');
                     this._service.getPing(id).then(function (ping) { return _this.ping = ping; });
                 };
+                DetailsComponent.prototype.getImgSrc = function () {
+                    return "https://maps.googleapis.com/maps/api/staticmap?center=" + this.ping.lat + "," + this.ping.long + "&zoom=18&size=300x300&sensor=false";
+                };
                 DetailsComponent = __decorate([
                     core_1.Component({
-                        template: "\n    <div *ngIf=\"ping\">\n      <h3>{{ping.user}} - {{ ping.time }}</h3>\n      <div>\n        <label>Id: </label>{{ping.id}}\n      </div>\n    </div>\n    "
+                        template: "\n    <div *ngIf=\"ping\">\n      <a [routerLink]=\"['Home']\">&lt;&nbsp;Back</a>\n      <h3>{{ping.user}} - {{ ping.time }}</h3>\n      <div>\n        <img  src=\"{{getImgSrc()}}\" />\n      </div>\n    </div>\n    ",
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, ping_service_1.PingService])
                 ], DetailsComponent);
