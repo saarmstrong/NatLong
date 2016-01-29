@@ -16,6 +16,7 @@
   "scripts": {
     "build": "npm run clean && npm test && ./node_modules/.bin/webpack --config webpack.dist.js --progress",
     "clean": "./node_modules/.bin/de ./target",
+    "postinstall": "./node_modules/.bin/typings install",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.dev.js --progress",
     "test": "./node_modules/.bin/karma start --single-run"
   },
@@ -50,6 +51,7 @@
     "style-loader": "~0.13.0",
     "ts-loader": "~0.8.0",
     "tslint": "~3.3.0",
+    "typings": "~0.6.3",
     "typescript": "~1.7.5",
     "webpack": "~1.12.12",
     "webpack-dev-server": "~1.14.1",
