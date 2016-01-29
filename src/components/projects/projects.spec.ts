@@ -11,7 +11,7 @@ import {
   fit,
   xit,
   beforeEachProviders,
-  inject,
+  injectAsync,
   TestComponentBuilder
 } from 'angular2/testing';
 
@@ -26,16 +26,19 @@ describe('Projects', () => {
     ProjectService
   ]);
 
-  it('should display a list of projects', inject([TestComponentBuilder], tcb => {
-    tcb.createAsync(Projects)
-      .then(fixture => {
-        fixture.detectChanges();
-        let compiled = fixture.nativeElement;
-
-        return fixture.componentInstance.loaded.then(() => {
+  it('should display a list of projects', injectAsync([TestComponentBuilder], tcb => {
+    return new Promise(resolve => {
+      tcb.createAsync(Projects)
+        .then(fixture => {
           fixture.detectChanges();
-          expect(compiled.querySelectorAll('li').length).toBe(2);
+          let compiled = fixture.nativeElement;
+
+          return fixture.componentInstance.loaded.then(() => {
+            fixture.detectChanges();
+            expect(compiled.querySelectorAll('li').length).toBe(2);
+            resolve();
+          });
         });
-      });
+    });
   }));
 });

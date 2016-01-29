@@ -10,7 +10,7 @@ import {
   fit,
   xit,
   beforeEachProviders,
-  inject,
+  injectAsync,
   TestComponentBuilder
 } from 'angular2/testing';
 
@@ -21,18 +21,24 @@ describe('AuthService', () => {
   beforeEachProviders(() => [AuthService]);
 
   describe('#authenticate()', () => {
-    it('should fulfill promise when pin is correct', inject([AuthService], service => {
-      service.authenticate(1234)
-        .then(authenticated => {
-          expect(authenticated).toBe(true);
-        });
+    it('should fulfill promise when pin is correct', injectAsync([AuthService], service => {
+      return new Promise(resolve => {
+        service.authenticate(1234)
+          .then(authenticated => {
+            expect(authenticated).toBe(true);
+            resolve();
+          });
+      });
     }));
 
-    it('should reject promise when pin is incorrect', inject([AuthService], service => {
-      service.authenticate(4321)
-        .then(authenticated => {
-          expect(authenticated).toBe(false);
-        });
+    it('should reject promise when pin is incorrect', injectAsync([AuthService], service => {
+      return new Promise(resolve => {
+        service.authenticate(4321)
+          .then(authenticated => {
+            expect(authenticated).toBe(false);
+            resolve();
+          });
+      });
     }));
   });
 });
