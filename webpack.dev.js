@@ -15,7 +15,9 @@ const SERVER_PORT = '3000';
 module.exports = {
   cache: true,
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
+
+  // for faster builds use 'cheap-module-eval-source-map'
+  devtool: 'source-map',
 
   entry: {
     main: [

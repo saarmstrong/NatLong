@@ -1,8 +1,13 @@
 require('angular2/bundles/angular2-polyfills');
-require('angular2/testing');
 
-// Uncomment to load rx operators as test dependencies
-// require('rxjs/Rx');
+// Specify platform and application providers
+var browser = require('angular2/platform/testing/browser');
+var testing = require('angular2/testing');
+
+testing.setBaseTestProviders(
+  browser.TEST_BROWSER_PLATFORM_PROVIDERS,
+  browser.TEST_BROWSER_APPLICATION_PROVIDERS
+);
 
 // Turn on full stack traces in errors to help debugging
 Error.stackTraceLimit = Infinity;
@@ -14,7 +19,3 @@ var context = require.context('./src', true, /\.spec\.ts/);
 
 // Load discovered spec files
 context.keys().forEach(context);
-
-// Use the `BrowserDomAdapter`
-var domAdapter = require('angular2/src/platform/browser/browser_adapter').BrowserDomAdapter;
-domAdapter.makeCurrent();
